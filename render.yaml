@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: basket-news-italia
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: REFRESH_TOKEN
+        sync: false
+      - key: AUTO_INITIAL_REFRESH
+        value: "1"
